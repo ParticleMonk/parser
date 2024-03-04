@@ -47,6 +47,3 @@ id {[a-zA-Z]}
 num { +, -, epsilon, [0-9]}
 numsign { [0-9], +, -}
 digit {[0-9]}
-
-
-elv6zg@umkc.edu
