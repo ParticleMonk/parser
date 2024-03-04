@@ -1,0 +1,52 @@
+FIRST Sets
+program {[a-zA-Z], epsilon}
+linelist {[a-zA-Z], epsilon}
+line { [a-zA-Z] }
+label {[a-zA-Z], epsilon}
+linetail {;, epsilon}
+stmt {[a-zA-Z], if, while, read, write, goto, gosub, return, break, end}
+boolean {true, false, [a-zA-Z], +, -, epsilon, ( }
+bool-op {<, >, >=, <=, <>, = }
+expr {[a-zA-Z], +, -, epsilon, ( }
+etail {+ , -, *, /, epsilon}
+id {[a-zA-Z]}
+num { +, -, epsilon} 
+numsign { +, -, epsilon}
+digit { [0-9]}
+
+FOLLOW Sets
+
+program {$$}
+linelist {$$, endwhile, epsilon, [a-zA-Z]}
+line {[a-zA-Z], epsilon }
+label {[a-zA-Z], if, while, read, write, goto, gosub, return, break, end }
+linetail {[a-zA-Z], epsilon } "Having a difficult time determing if this includes $$"
+stmt { [a-zA-Z], if, while, read, write, goto, gosub, return, break, end, epsilon, ; }
+boolean { ) }
+bool-op { [a-zA-Z], +, -, epsilon, (}
+expr { ), [a-zA-Z], if, while, read, write, goto, gosub, return, break, end} 
+etail { ), [a-zA-Z], if, while, read, write, goto, gosub, return, break, end}
+id { :,[a-zA-Z], if, while, read, write, goto, gosub, return, break, end, =, + , -, *, /, epsilon}
+num { + , -, *, /, epsilon}
+numsign {[0-9]}
+digit { [0-9], + , -, *, /, epsilon}
+
+PREDICT sets
+
+program {[a-zA-Z], epsilon}
+linelist {[a-zA-Z], epsilon, $$, endwhile,}
+line { [a-zA-Z], epsilon, if, while, read, write, goto, gosub, return, break, end, ;}
+label {[a-zA-Z], if, while, read, write, goto, gosub, return, break, end }
+linetail {[a-zA-Z], if, while, read, write, goto, gosub, return, break, end, epsilon }
+stmt {[a-zA-Z], +, -, epsilon, (, true, false, if, while, read, write, goto, gosub, return, break, end}
+boolean { [a-zA-Z], +, -, epsilon, (, <, >, >=, <=, <>, = }
+bool-op {<, >, >=, <=, <>, = }
+expr {[a-zA-Z],+ , -, *, /, epsilon, (}
+etail {+ , -, *, /, epsilon, ), [a-zA-Z], if, while, read, write, goto, gosub, return, break, end}
+id {[a-zA-Z]}
+num { +, -, epsilon, [0-9]}
+numsign { [0-9], +, -}
+digit {[0-9]}
+
+
+elv6zg@umkc.edu
